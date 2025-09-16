@@ -1,0 +1,669 @@
+body {
+    font-family: "Chakra Petch", sans-serif;
+    transition: background-color 0.4s ease-in-out;
+    background-color: var(--bg-body);
+}
+
+body[data-theme="earth"] {
+    --bg-body: #FDF4E3;
+    --bg-container: #F6EBDD;
+    --bg-primary-color: #E8DBC9;
+    --bg-accent-color: #5C6A4B;
+    --text-dark: #3E382A;
+    --btn-main: #5C6A4B;
+    --btn-hover: #4A563D;
+    --correct-answer: #4CAF50;
+    --incorrect-answer: #F44336;
+    --didnt-answer: #F7DF1E;
+}
+
+body[data-theme="light"] {
+    --bg-body: #F0F4F8;
+    --bg-container: #FFFFFF;
+    --bg-primary-color: #E2E8F0;
+    --bg-accent-color: #4A90E2;
+    --text-dark: #333333;
+    --btn-main: #4A90E2;
+    --btn-hover: #357ABD;
+    --correct-answer: #4CAF50;
+    --incorrect-answer: #F44336;
+    --didnt-answer: #FDE68A;
+}
+
+body[data-theme="dark"] {
+    --bg-body: #1F2937;
+    --bg-container: #2D3748;
+    --bg-primary-color: #374151;
+    --bg-accent-color: #1c222d;
+    --text-dark: #F3F4F6;
+    --bg-input: #0f1724;
+    --btn-main: #406580;
+    --btn-hover: #5286ab;
+    --correct-answer: #28A745;
+    --incorrect-answer: #DC3545;
+    --didnt-answer: #FBBF24;
+}
+
+body[data-theme="dark"] input,
+body[data-theme="dark"] select,
+body[data-theme="dark"] textarea {
+    background-color: var(--bg-input);
+    color: var(--text-dark);
+    border-color: var(--input-border);
+}
+
+body[data-theme="dark"] .logged-in-as,
+body[data-theme="dark"] .quiz-result {
+    color: white;
+}
+
+body[data-theme="pastel"] {
+    --bg-body: #FEE7F2;
+    --bg-container: #ffe9ee;
+    --bg-primary-color: #FFD1DC;
+    --bg-accent-color: #A7C7E7;
+    --text-dark: #555555;
+    --btn-main: #A7C7E7;
+    --btn-hover: #8AB3D8;
+    --correct-answer: #7ED957;
+    --incorrect-answer: #FF6961;
+    --didnt-answer: #FDE68A;
+}
+
+body[data-theme="solar"] {
+    --bg-body: #FFF7ED;
+    --bg-container: #FFF3DB;
+    --bg-primary-color: #FFF0C9;
+    --bg-accent-color: #F59E0B;
+    --text-dark: #3A2F1A;
+    --btn-main: #F59E0B;
+    --btn-hover: #D07A00;
+    --correct-answer: #4CAF50;
+    --incorrect-answer: #F44336;
+    --didnt-answer: #FDE68A;
+}
+
+.bg-primary-color {
+    background-color: var(--bg-primary-color);
+}
+
+.bg-accent-color {
+    background-color: var(--bg-accent-color);
+}
+
+.text-dark {
+    color: var(--text-dark);
+}
+
+.bg-container {
+    background-color: var(--bg-container);
+}
+
+.shadow-lg-custom {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.rounded-xl {
+    border-radius: 0.75rem;
+}
+
+button {
+    transition: background-color 0.15s ease;
+}
+
+.quiz-option {
+    display: block;
+    padding: 0.5rem 0.6rem;
+    border-radius: 0.45rem;
+    cursor: pointer;
+    margin-bottom: 0.375rem;
+    transition: background-color 160ms ease, color 160ms ease;
+    user-select: none;
+}
+
+.quiz-option input[type="radio"] {
+    margin-right: 0.6rem;
+    transform: translateY(0);
+}
+
+.quiz-option:hover {
+    filter: brightness(0.98);
+}
+
+.badge {
+    width: 1.05rem;
+    height: 1.05rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    line-height: 1;
+    padding: 0;
+}
+
+.correct-answer {
+    background-color: var(--correct-answer) !important;
+    color: white !important;
+}
+
+.incorrect-answer {
+    background-color: var(--incorrect-answer) !important;
+    color: white !important;
+}
+
+.didnt-answer {
+    background-color: var(--didnt-answer) !important;
+    color: #1f2937 !important;
+    font-weight: 700;
+}
+
+.quiz-option.correct {
+    background-color: var(--correct-answer);
+    color: white;
+}
+
+.quiz-option.show-correct {
+    background-color: var(--correct-answer);
+    color: white;
+}
+
+.legend .badge {
+    width: 1.05rem;
+    height: 1.05rem;
+    font-size: 0.75rem;
+}
+
+.aside-auth {
+    max-height: 340px;
+    transition: max-height 360ms ease, opacity 300ms ease, transform 300ms ease;
+    transform-origin: bottom;
+}
+
+.aside-auth.collapsed {
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(8px);
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.session-btn {
+    position: relative;
+}
+
+.session-btn:hover {
+    background-color: var(--bg-primary-color) !important;
+    color: var(--text-dark) !important;
+}
+
+.session-btn.active {
+    background-color: var(--bg-accent-color) !important;
+    color: white !important;
+}
+
+.session-btn::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0.75rem;
+    right: 0.75rem;
+    height: 2px;
+    background-color: var(--bg-accent-color);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.session-btn.active::after,
+.session-btn:hover::after {
+    transform: scaleX(1);
+}
+
+.loading-spinner {
+    border-right-color: var(--bg-primary-color);
+    border-bottom-color: var(--bg-primary-color);
+    border-left-color: var(--bg-primary-color);
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.animate-spin {
+    animation: spin 1s linear infinite;
+}
+
+.theme-dot {
+    width: 24px;
+    height: 24px;
+    border-radius: 9999px;
+    border: 2px solid #e5e7eb;
+    cursor: pointer;
+    background: linear-gradient(135deg, var(--swatch-a) 50%, var(--swatch-b) 50%);
+    transition: box-shadow 160ms ease, transform 120ms ease;
+    display: inline-block;
+}
+
+.theme-dot[data-theme="earth"] {
+    --swatch-a: #5C6A4B;
+    --swatch-b: #E8DBC9;
+}
+
+.theme-dot[data-theme="light"] {
+    --swatch-a: #4A90E2;
+    --swatch-b: #E2E8F0;
+}
+
+.theme-dot[data-theme="dark"] {
+    --swatch-a: #63B3ED;
+    --swatch-b: #1C222D;
+}
+
+.theme-dot[data-theme="pastel"] {
+    --swatch-a: #A7C7E7;
+    --swatch-b: #FFD1DC;
+}
+
+.theme-dot[data-theme="solar"] {
+    --swatch-a: #F59E0B;
+    --swatch-b: #FFF0C9;
+}
+
+.theme-circle-active {
+    box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.06), 0 0 0 6px var(--bg-accent-color);
+    transform: translateY(-2px);
+}
+
+.theme-dot:hover {
+    transform: translateY(-2px);
+}
+
+.theme-dot:focus {
+    outline: 2px solid rgba(0, 0, 0, 0.06);
+    outline-offset: 2px;
+}
+
+#newSession {
+    margin-bottom: 2rem;
+    display: block;
+}
+
+#loggedInAs {
+    color: var(--text-dark);
+}
+
+.quiz-result {
+    color: var(--text-dark);
+}
+
+#chatArea {
+    display: none;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-bottom: 0.75rem;
+}
+
+#userAsk {
+    display: none;
+}
+
+#submitQuizBtn {
+    display: none;
+}
+
+#redoQuizBtn {
+    display: none;
+}
+
+#showAnswerBtn {
+    display: none;
+}
+
+.chat-wrapper {
+    display: flex;
+}
+
+.chat-wrapper.ai {
+    justify-content: flex-start;
+}
+
+.chat-wrapper.user {
+    justify-content: flex-end;
+}
+
+.chat-bubble {
+    display: inline-block;
+    padding: 0.6rem 0.9rem;
+    border-radius: 0.75rem;
+    max-width: 80%;
+    word-break: break-word;
+    white-space: pre-wrap;
+    line-height: 1.25;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.06);
+}
+
+.chat-bubble.ai {
+    align-self: flex-start;
+    background-color: var(--bg-container);
+    color: var(--text-dark);
+    border-bottom-left-radius: 0.25rem;
+}
+
+.chat-bubble.user {
+    align-self: flex-end;
+    background-color: var(--bg-accent-color);
+    color: white;
+    border-bottom-right-radius: 0.25rem;
+}
+
+#leftAside.collapsed h1 {
+    display: none;
+}
+
+#leftAside.collapsed h2 {
+    display: none;
+}
+
+#leftAside.collapsed #newSessionBtn {
+    display: none;
+}
+
+#leftAside.collapsed .aside-auth {
+    display: none;
+}
+
+#leftAside.collapsed #loggedInAs {
+    display: none;
+}
+
+#leftAside.collapsed .mt-auto {
+    display: none;
+}
+
+#leftAside.collapsed #sessionList {
+    display: none;
+}
+
+#loadingOverlay,
+#resultOverlay {
+    z-index: 99999;
+    pointer-events: auto;
+}
+
+#loadingOverlay>.bg-container,
+#resultOverlay>.bg-container {
+    z-index: 100000;
+}
+
+#loadingOverlay .bg-container,
+#resultOverlay .bg-container {
+    color: var(--text-dark);
+}
+
+#resultScoreValue,
+#resultTotalValue {
+    color: inherit;
+}
+
+#leftAside {
+    transition: width 260ms ease, padding 260ms ease;
+    overflow: hidden;
+    position: relative;
+    /* make it a positioning context */
+}
+
+#leftAside.collapsed {
+    width: 0;
+    padding: 0;
+    border: none;
+}
+
+#toggleAsideBtn {
+    top: 1rem;
+    left: 18rem;
+    /* sidebar width */
+    top: 1rem;
+    /* padding from top */
+    z-index: 20;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: var(--btn-main);
+    /* match other buttons */
+    color: white;
+    /* text color */
+    border-radius: 0.5rem;
+    transition: left 0.25s ease, background-color 0.3s ease;
+}
+
+#toggleAsideBtn:hover {
+    background-color: var(--btn-hover);
+    /* hover effect like other buttons */
+}
+
+#leftAside.collapsed~#toggleAsideBtn {
+    left: 0.5rem;
+    /* hugging left edge */
+}
+
+#leftAside {
+    --sidebar-width: 18rem;
+    /* uncollapsed width */
+}
+
+#leftAside:not(.collapsed)~#toggleAsideBtn {
+    left: calc(var(--sidebar-width, 18rem));
+    /* CSS variable fallback */
+}
+
+#leftAside {
+    z-index: 10;
+    /* sits on top */
+    background-color: var(--bg-container);
+    /* instead of #f5f5f5 */
+    color: var(--text-dark);
+}
+
+#ChatAndQuizPanel {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    max-height: 100vh;
+    /* ensures PC view doesn't exceed viewport */
+    flex: 1 1 auto;
+    overflow-y: hidden;
+    /* hide scroll for desktop */
+
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    /* horizontal on PC */
+    z-index: 5;
+    background-color: var(--bg-body);
+    color: var(--text-dark);
+}
+
+.inside-toggle {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 60;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  background-color: var(--btn-main);
+  color: white;
+  transition: background-color 0.2s ease;
+}
+
+.inside-toggle:hover {
+  background-color: var(--btn-hover);
+}
+
+@media (min-width: 901px) {
+  .inside-toggle { display: none; }  /* hide inside button on PC */
+  #toggleAsideBtn { display: flex; } /* keep PC toggle visible */
+}
+@media (max-width: 900px) {
+
+    /* mobile-friendly variables */
+    :root {
+        --aside-mobile-width: calc(min(92vw, 320px));
+        /* almost full screen but capped */
+        --aside-visible-for-toggle: 3rem;
+        /* how much remains visible so toggle can sit */
+    }
+
+    /* overlay sidebar that slides horizontally */
+    #leftAside {
+        position: fixed;
+        z-index: 30;
+        top: 0;
+        left: 0;
+        width: var(--aside-mobile-width);
+        height: 100vh;
+        /* always exactly viewport height */
+        max-height: 100vh;
+        overflow-y: auto;
+        transform: translateX(calc(-100% + var(--aside-visible-for-toggle)));
+        /* collapsed state by default */
+        transition: transform 260ms ease, width 160ms ease;
+        box-sizing: border-box;
+    }
+
+    /* open state: fully visible */
+    #leftAside:not(.collapsed) {
+        transform: translateX(0);
+        pointer-events: auto;
+    }
+
+    /* collapsed state: slide off-screen but leave room for toggle (keeps button visible) */
+    #leftAside.collapsed {
+        transform: translateX(calc(-100% + var(--aside-visible-for-toggle)));
+        pointer-events: none;
+        /* optional: ensures clicks go through to page (keeps toggle clickable) */
+    }
+
+    /* toggle button fixed so it's always clickable and above the sidebar */
+    #toggleAsideBtn {
+        position: fixed;
+        top: 1rem;
+        z-index: 40;
+        width: 2.5rem;
+        height: 2.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: left 0.25s ease;
+        left: calc(var(--aside-mobile-width));
+        /* sit at the sidebar edge when open */
+    }
+
+    #leftAside.collapsed~#toggleAsideBtn {
+        left: 0.5rem;
+    }
+
+    /* make main content scroll/stack vertically on mobile */
+    #ChatAndQuizPanel {
+        flex-direction: column;
+        margin-left: 0;
+        overflow-y: auto;
+        height: 100vh;
+    }
+}
+
+@media (min-width: 901px) {
+    #leftAside {
+        position: relative;
+        width: 18rem;
+        flex-shrink: 0;
+        /* prevent shrinking */
+    }
+
+    #ChatAndQuizPanel {
+        flex: 1;
+        flex-direction: row;
+    }
+}
+
+body[data-theme="dark"] #confirmOverlay .bg-container {
+    color: white;
+}
+
+@media (max-width: 900px) and (orientation: landscape) {
+
+
+  /* shrink headers */
+  #leftAside h1 {
+    font-size: 1rem !important;
+    margin-bottom: 0.25rem !important;
+  }
+  #leftAside h2 {
+    font-size: 0.85rem !important;
+    margin-bottom: 0.25rem !important;
+  }
+
+  /* shrink generic inputs/buttons */
+  #leftAside button,
+  #leftAside input,
+  #leftAside select,
+  #leftAside textarea {
+    padding: 3px 5px !important;
+    font-size: 0.75rem !important;
+    min-height: 24px !important;
+  }
+
+  /* keep session list always taking remaining space */
+  #sessionList {
+    flex: 1 1 auto !important;
+    overflow-y: auto !important;
+    min-height: 60px !important; /* ensures visible area */
+  }
+
+  /* shrink "Theme:" and circles */
+  #leftAside p, #leftAside .text-sm {
+    font-size: 0.7rem !important;
+    margin-bottom: 0.2rem !important;
+  }
+  #leftAside .theme-dot {
+    width: 14px !important;
+    height: 14px !important;
+  }
+}
+
+@media (max-width: 900px) and (orientation: landscape) {
+  #sessionList li,
+  #sessionList .session-btn {
+    padding: 2px 4px !important;
+    font-size: 0.7rem !important;
+    line-height: 1.1rem !important;
+    min-height: 22px !important;
+  }
+
+  /* reduce vertical gaps */
+  #sessionList {
+    gap: 0.25rem !important; /* for flex/grid layouts */
+  }
+  #sessionList > *:not(:last-child) {
+    margin-bottom: 0.25rem !important; /* for space-y fallback */
+  }
+}
+
+@media (max-width: 900px) {
+  #sessionList > div {
+    display: none; /* hide the divider lines on mobile */
+  }
+}
